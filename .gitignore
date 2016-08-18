@@ -32,6 +32,7 @@ config/secrets.yml
 ## Environment normalization:
 /.bundle
 /vendor/bundle
+/vendor/cache
 
 # Pre-compiled assets
 /public/assets

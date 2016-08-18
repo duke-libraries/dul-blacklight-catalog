@@ -36,6 +36,7 @@ gem 'blacklight', "~> 6.0"
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'therubyracer'
 
+gem 'traject', '~> 2.3.1'
 gem 'blacklight-marc', :git => 'https://github.com/duke-libraries/blacklight-marc'
 gem 'jettywrapper', '>= 2.0'
 gem 'rsolr', '~> 1.0'
