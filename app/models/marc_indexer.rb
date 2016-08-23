@@ -41,7 +41,7 @@ class MarcIndexer < Blacklight::Marc::Indexer
     #    subtitle
      
     to_field 'subtitle_t', extract_marc('245b')
-    to_field 'subtitle_display', extract_marc('245b', :trim_punctuation => true, :alternate_script=>false)
+    to_field 'subtitle_display', extract_marc('245b', :trim_punctuation => true, :alternate_script=>false, :first=>true)
     to_field 'subtitle_vern_display', extract_marc('245b', :trim_punctuation => true, :alternate_script=>:only)
      
     #    additional title fields
@@ -74,7 +74,7 @@ class MarcIndexer < Blacklight::Marc::Indexer
      
     to_field 'author_t', extract_marc("100abcegqu:110abcdegnu:111acdegjnqu")
     to_field 'author_addl_t', extract_marc("700abcegqu:710abcdegnu:711acdegjnqu")
-    to_field 'author_display', extract_marc("100abcdq:110#{ATOZ}:111#{ATOZ}", :alternate_script=>false)
+    to_field 'author_display', extract_marc("100abcdq:110#{ATOZ}:111#{ATOZ}", :alternate_script=>false, :first=>true)
     to_field 'author_vern_display', extract_marc("100abcdq:110#{ATOZ}:111#{ATOZ}", :alternate_script=>:only)
      
     # JSTOR isn't an author. Try to not use it as one
