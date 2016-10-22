@@ -5,6 +5,7 @@ class CatalogController < ApplicationController
   include Blacklight::Marc::Catalog
 
 
+
   configure_blacklight do |config|
     ## Class for sending and receiving requests from a search index
     # config.repository_class = Blacklight::Solr::Repository
@@ -101,7 +102,9 @@ class CatalogController < ApplicationController
     config.add_index_field 'language_facet', label: 'Language'
     config.add_index_field 'published_display', label: 'Published'
     config.add_index_field 'published_vern_display', label: 'Published'
+    config.add_index_field 'institution_s', label: 'Institution'
     config.add_index_field 'lc_callnum_display', label: 'Call number'
+
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
@@ -119,6 +122,8 @@ class CatalogController < ApplicationController
     config.add_show_field 'published_vern_display', label: 'Published'
     config.add_show_field 'lc_callnum_display', label: 'Call number'
     config.add_show_field 'isbn_t', label: 'ISBN'
+    config.add_show_field 'institution_s', label: 'Institution'
+
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
