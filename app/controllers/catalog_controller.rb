@@ -7,11 +7,8 @@ class CatalogController < ApplicationController
   # CatalogController behavior and configuration for TrlnArgon
   include TrlnArgon::ControllerOverride
 
-
-
   configure_blacklight do |config|
 
-    config.search_builder_class = TrlnSearchBuilder
 
     ## Class for sending and receiving requests from a search index
     # config.repository_class = Blacklight::Solr::Repository
@@ -28,7 +25,7 @@ class CatalogController < ApplicationController
     }
 
     # solr path which will be added to solr base url before the other solr params.
-    #config.solr_path = 'select'
+    # config.solr_path = 'search'
 
     # items to show per page, each number in the array represent another option to choose from.
     #config.per_page = [10,20,50,100]
@@ -45,8 +42,8 @@ class CatalogController < ApplicationController
     #}
 
     # solr field configuration for search results/index views
-    config.index.title_field = 'title_display'
-    config.index.display_type_field = 'format'
+    config.index.title_field = 'title_main'
+    config.index.display_type_field = 'format_a'
 
     # solr field configuration for document/show views
     #config.show.title_field = 'title_display'
@@ -76,13 +73,11 @@ class CatalogController < ApplicationController
     #  (useful when user clicks "more" on a large facet and wants to navigate alphabetically across a large set of results)
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
-    config.add_facet_field 'format', label: 'Format'
-    config.add_facet_field 'pub_date', label: 'Publication Year', single: true
-    config.add_facet_field 'subject_topic_facet', label: 'Topic', limit: 20, index_range: 'A'..'Z'
-    config.add_facet_field 'language_facet', label: 'Language', limit: true
-    config.add_facet_field 'lc_alpha_facet', label: 'Call Number', sort: 'index', limit: 20
-    config.add_facet_field 'subject_geo_facet', label: 'Region'
-    config.add_facet_field 'subject_era_facet', label: 'Era'
+    config.add_facet_field 'format_f', label: 'Format'
+    config.add_facet_field 'publication_year', label: 'Publication Year', single: true
+    config.add_facet_field 'subjects_pp', label: 'Subject', limit: 20
+    config.add_facet_field 'language_f', label: 'Language', limit: true
+    config.add_facet_field 'items_call_number_tag_f', label: 'Call Number'
 
     config.add_facet_field 'example_pivot_field', label: 'Pivot Field', :pivot => ['format', 'language_facet']
 
@@ -93,6 +88,7 @@ class CatalogController < ApplicationController
     }
 
 
+
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
     # handler defaults, or have no facets.
@@ -100,32 +96,28 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    config.add_index_field 'title_display', label: 'Title'
-    config.add_index_field 'title_vern_display', label: 'Title'
-    config.add_index_field 'author_display', label: 'Author'
-    config.add_index_field 'author_vern_display', label: 'Author'
-    config.add_index_field 'format', label: 'Format'
-    config.add_index_field 'language_facet', label: 'Language'
-    config.add_index_field 'published_display', label: 'Published'
-    config.add_index_field 'published_vern_display', label: 'Published'
-    config.add_index_field 'lc_callnum_display', label: 'Call number'
+    config.add_index_field 'title_main', label: 'Title'
+    #config.add_index_field 'title_vern_display', label: 'Title'
+    config.add_index_field 'authors_main_a', label: 'Author'
+    #config.add_index_field 'author_vern_display', label: 'Author'
+    config.add_index_field 'format_a', label: 'Format'
+    config.add_index_field 'language_a', label: 'Language'
+    config.add_index_field 'publisher_etc_name_a', label: 'Publisher'
+    #config.add_index_field 'published_vern_display', label: 'Published'
+    #config.add_index_field 'lc_callnum_display', label: 'Call number'
+    config.add_index_field 'publication_year_isort_stored_single', label: 'Date'
+
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
-    config.add_show_field 'title_display', label: 'Title'
-    config.add_show_field 'title_vern_display', label: 'Title'
-    config.add_show_field 'subtitle_display', label: 'Subtitle'
-    config.add_show_field 'subtitle_vern_display', label: 'Subtitle'
-    config.add_show_field 'author_display', label: 'Author'
-    config.add_show_field 'author_vern_display', label: 'Author'
-    config.add_show_field 'format', label: 'Format'
-    config.add_show_field 'url_fulltext_display', label: 'URL'
-    config.add_show_field 'url_suppl_display', label: 'More Information'
-    config.add_show_field 'language_facet', label: 'Language'
-    config.add_show_field 'published_display', label: 'Published'
-    config.add_show_field 'published_vern_display', label: 'Published'
-    config.add_show_field 'lc_callnum_display', label: 'Call number'
-    config.add_show_field 'isbn_t', label: 'ISBN'
+    config.add_show_field 'title_main', label: 'Title'
+    #config.add_show_field 'title_vern_display', label: 'Title'
+    config.add_show_field 'authors_main_a', label: 'Author'
+    config.add_show_field 'format_a', label: 'Format'
+    config.add_show_field 'url_href_a', label: 'URL'
+    config.add_show_field 'language_a', label: 'Language'
+    config.add_show_field 'publisher_etc_name_a', label: 'Publisher'
+    config.add_show_field 'isbn_primary_number_a', label: 'ISBN'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
@@ -146,6 +138,13 @@ class CatalogController < ApplicationController
     # since we aren't specifying it otherwise.
 
     config.add_search_field 'all_fields', label: 'All Fields'
+
+    # config.add_search_field 'all_fields', :label => 'All Fields' do |field|
+    #   field.solr_local_parameters = {
+    #     :qf => 'title_main_t authors_main_t'
+    #   }
+    # end
+
 
 
     # Now we see how to over-ride Solr request handler defaults, in this
@@ -177,23 +176,22 @@ class CatalogController < ApplicationController
     # Specifying a :qt only to show it's possible, and so our internal automated
     # tests can test it. In this case it's the same as
     # config[:default_solr_parameters][:qt], so isn't actually neccesary.
-    config.add_search_field('subject') do |field|
-      field.solr_parameters = { :'spellcheck.dictionary' => 'subject' }
-      field.qt = 'search'
-      field.solr_local_parameters = {
-        qf: '$subject_qf',
-        pf: '$subject_pf'
-      }
-    end
+    # config.add_search_field('subject') do |field|
+    #   field.solr_parameters = { :'spellcheck.dictionary' => 'subject' }
+    #   field.qt = 'search'
+    #   field.solr_local_parameters = {
+    #     qf: '$subject_qf',
+    #     pf: '$subject_pf'
+    #   }
+    # end
 
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
-    config.add_sort_field 'score desc, pub_date_sort desc, title_sort asc', label: 'relevance'
-    config.add_sort_field 'pub_date_sort desc, title_sort asc', label: 'year'
-    config.add_sort_field 'author_sort asc, title_sort asc', label: 'author'
-    config.add_sort_field 'title_sort asc, pub_date_sort desc', label: 'title'
+    config.add_sort_field 'score desc, publication_year_isort_stored_single desc, title_sort_ssort_single asc', label: 'relevance'
+    config.add_sort_field 'publication_year_isort_stored_single desc, title_sort_ssort_single asc', label: 'year'
+    config.add_sort_field 'title_sort_ssort_single asc, publication_year_isort_stored_single desc', label: 'title'
 
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
@@ -203,4 +201,6 @@ class CatalogController < ApplicationController
     config.autocomplete_enabled = true
     config.autocomplete_path = 'suggest'
   end
+
+
 end
