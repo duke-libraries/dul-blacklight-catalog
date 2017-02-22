@@ -33,7 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'blacklight', "~> 6.7"
-gem 'trln_argon', git: 'https://github.com/trln/trln_argon.git'
+gem 'trln_argon', git: 'https://github.com/trln/trln_argon.git', :ref => '0e2ada349cc569cea8d69b788194de05979ef944'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'therubyracer'
 
