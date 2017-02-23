@@ -26,12 +26,7 @@ class CatalogController < ApplicationController
 
     # config.facet_fields.clear
     # config.facet_fields['language_f'].clear
-    # config.add_facet_field 'language_f', label: I18n.t('blacklight.facet_label.language_f'), limit: true
-    # config.add_facet_field 'items_call_number_tag_f', label: I18n.t('blacklight.facet_label.items_call_number_tag_f')
-    # config.add_facet_field 'format_f', label: I18n.t('blacklight.facet_label.format_f')
-
-
-    # solr path which will be added to solr base url before the other solr params.
+    #    #    #    # solr path which will be added to solr base url before the other solr params.
     # config.solr_path = 'search'
 
     # items to show per page, each number in the array represent another option to choose from.

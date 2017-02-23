@@ -12,8 +12,8 @@ GIT
 
 GIT
   remote: https://github.com/trln/trln_argon.git
-  revision: 9a819b911b78bac494e026d8a22807c8ed71297e
-  ref: 9a819b911b78bac494e026d8a22807c8ed71297e
+  revision: c676ac51a6380da97aa6890f5023f08de683a40b
+  ref: c676ac51a6380da97aa6890f5023f08de683a40b
   specs:
     trln_argon (0.1.0)
       blacklight (~> 6.7)
