@@ -12,13 +12,14 @@ GIT
 
 GIT
   remote: https://github.com/trln/trln_argon.git
-  revision: a1d82067f30456c3fd29dc8712190cfe3ddc6f80
-  ref: a1d82067f30456c3fd29dc8712190cfe3ddc6f80
+  revision: 0c5618168189555174883c5cf0721d0a4515d5d7
+  ref: 0c5618168189555174883c5cf0721d0a4515d5d7
   specs:
     trln_argon (0.1.0)
       blacklight (~> 6.7)
       blacklight_advanced_search (~> 6.2)
       rails (~> 5.0.1)
+      rails_autolink (~> 1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -190,6 +191,8 @@ GEM
       nokogiri (~> 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_autolink (1.1.6)
+      rails (> 3.1)
     railties (5.0.1)
       actionpack (= 5.0.1)
       activesupport (= 5.0.1)
