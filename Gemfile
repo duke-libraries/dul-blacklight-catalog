@@ -34,8 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'blacklight', "~> 6.7"
 
-gem 'trln_argon', git: 'https://github.com/trln/trln_argon.git', :ref => '6376a5af930ef82045cd93d42d073f0b2bbb3ee4'
-# gem 'trln_argon', path: '../trln_argon'
+gem 'trln_argon', git: 'https://github.com/trln/trln_argon.git'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'therubyracer'
