@@ -12,9 +12,9 @@ GIT
 
 GIT
   remote: https://github.com/trln/trln_argon.git
-  revision: 557911aa066d3a52e8f9a02ec8f93a68548f6e35
+  revision: 396e1cc9a4dd6878cf59a418773a063225710019
   specs:
-    trln_argon (0.1.1)
+    trln_argon (0.2.2)
       blacklight (~> 6.7)
       blacklight_advanced_search (~> 6.2)
       rails (~> 5)
