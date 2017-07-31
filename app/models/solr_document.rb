@@ -1,6 +1,19 @@
 # frozen_string_literal: true
+
+require 'trln_argon'
+
 class SolrDocument
-  include Blacklight::Solr::Document    
+  include Blacklight::Solr::Document
+
+  # This is needed so that SolrDocument.find will work correctly
+  # from the Rails console with our Solr configuration.
+  # Otherwise, it tries to use the non-existent document request handler.
+  SolrDocument.repository.blacklight_config.document_solr_path = :document
+  SolrDocument.repository.blacklight_config.document_solr_request_handler = nil
+
+  include TrlnArgon::ItemDeserializer
+
+    
       # The following shows how to setup this blacklight document to display marc documents
   extension_parameters[:marc_source_field] = :marc_display
   extension_parameters[:marc_format_type] = :marcxml

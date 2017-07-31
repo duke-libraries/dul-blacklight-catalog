@@ -77,6 +77,10 @@ class CatalogController < ApplicationController
     # handler defaults, or have no facets.
     config.add_facet_fields_to_solr_request!
 
+    config.show.partials = [ :show_header, :show, :show_items ]
+
+
+
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
     #config.add_index_field 'title_vern_display', label: 'Title'
