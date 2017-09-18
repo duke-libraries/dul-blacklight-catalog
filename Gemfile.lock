@@ -12,11 +12,14 @@ GIT
 
 GIT
   remote: https://github.com/trln/trln_argon.git
-  revision: 396e1cc9a4dd6878cf59a418773a063225710019
+  revision: 2436bc7206c21f0c9b7d264fe99b3b37139247c5
+  branch: TD-367-author-facet
   specs:
-    trln_argon (0.2.2)
+    trln_argon (0.2.7)
       blacklight (~> 6.7)
+      blacklight-hierarchy (~> 1.1.0)
       blacklight_advanced_search (~> 6.2)
+      library_stdnums (~> 1.6)
       rails (~> 5)
       rails_autolink (~> 1.1)
 
@@ -80,6 +83,10 @@ GEM
       rails (>= 4.2, < 6)
       rsolr (>= 1.0.6, < 3)
       twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
+    blacklight-hierarchy (1.1.0)
+      blacklight (~> 6.0)
+      jquery-rails
+      rails (>= 4.1, < 6)
     blacklight_advanced_search (6.3.1)
       blacklight (~> 6.0, >= 6.0.1)
       parslet
@@ -154,7 +161,7 @@ GEM
       activerecord
       kaminari-core (= 1.0.0)
     kaminari-core (1.0.0)
-    library_stdnums (1.4.1)
+    library_stdnums (1.6.0)
     libv8 (3.16.14.17)
     logger (1.2.8)
     loofah (2.0.3)
@@ -333,4 +340,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.15.2
+   1.15.3
