@@ -34,7 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'blacklight', "~> 6.7"
 
-gem 'trln_argon', git: 'https://github.com/trln/trln_argon.git', branch: 'TD-367-author-facet'
+gem 'trln_argon', git: 'https://github.com/trln/trln_argon.git', branch: 'TD-220-subject-linking'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'therubyracer'

@@ -12,13 +12,14 @@ GIT
 
 GIT
   remote: https://github.com/trln/trln_argon.git
-  revision: 2436bc7206c21f0c9b7d264fe99b3b37139247c5
-  branch: TD-367-author-facet
+  revision: 467ee99707f794d9b3b28c70e0313537881855a2
+  branch: TD-220-subject-linking
   specs:
-    trln_argon (0.2.7)
+    trln_argon (0.2.11)
       blacklight (~> 6.7)
       blacklight-hierarchy (~> 1.1.0)
       blacklight_advanced_search (~> 6.2)
+      git (~> 1.3.0)
       library_stdnums (~> 1.6)
       rails (~> 5)
       rails_autolink (~> 1.1)
@@ -130,6 +131,7 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14)
+    git (1.3.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashie (3.4.6)

@@ -4,6 +4,8 @@ require 'trln_argon'
 
 class SolrDocument
   include Blacklight::Solr::Document
+  include TrlnArgon::SolrDocument
+
 
   # This is needed so that SolrDocument.find will work correctly
   # from the Rails console with our Solr configuration.
