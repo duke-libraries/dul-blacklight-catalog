@@ -32,6 +32,9 @@ config/local_env.yml
 # Environment configs
 # /config/environments/*.rb
 
+# Mappings
+# /config/mappings
+
 ## Environment normalization:
 /.bundle
 /vendor/bundle

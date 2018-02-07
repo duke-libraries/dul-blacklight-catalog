@@ -77,7 +77,7 @@ class CatalogController < ApplicationController
     # handler defaults, or have no facets.
     config.add_facet_fields_to_solr_request!
 
-    config.show.partials = [ :show_header, :show, :show_items ]
+
 
 
 
@@ -137,8 +137,8 @@ class CatalogController < ApplicationController
     config.spell_max = 5
 
     # Configuration for autocomplete suggestor
-    config.autocomplete_enabled = true
-    config.autocomplete_path = 'suggest'
+
+
   end
 
 

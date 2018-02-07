@@ -12,6 +12,10 @@ class SolrDocument
   # Otherwise, it tries to use the non-existent document request handler.
   SolrDocument.repository.blacklight_config.document_solr_path = :document
   SolrDocument.repository.blacklight_config.document_solr_request_handler = nil
+  SolrDocument.use_extension(TrlnArgon::DocumentExtensions::Ris)
+  SolrDocument.use_extension(TrlnArgon::DocumentExtensions::OpenurlCtxKev)
+
+
 
   include TrlnArgon::ItemDeserializer
 
@@ -35,7 +39,7 @@ class SolrDocument
   # self.unique_key = 'id'
 
   # Email uses the semantic field mappings below to generate the body of an email.
-  SolrDocument.use_extension(Blacklight::Document::Email)
+  SolrDocument.use_extension(TrlnArgon::DocumentExtensions::Email)
 
   # SMS uses the semantic field mappings below to generate the body of an SMS email.
   SolrDocument.use_extension(Blacklight::Document::Sms)

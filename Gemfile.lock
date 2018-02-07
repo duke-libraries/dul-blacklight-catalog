@@ -12,15 +12,16 @@ GIT
 
 GIT
   remote: https://github.com/trln/trln_argon.git
-  revision: 467ee99707f794d9b3b28c70e0313537881855a2
-  branch: TD-220-subject-linking
+  revision: effd1964fb0b3f4e5afe0c8a00dc3769d92b8dea
+  branch: refactoring
   specs:
-    trln_argon (0.2.11)
+    trln_argon (0.3.0)
       blacklight (~> 6.7)
       blacklight-hierarchy (~> 1.1.0)
       blacklight_advanced_search (~> 6.2)
       git (~> 1.3.0)
       library_stdnums (~> 1.6)
+      openurl (~> 1.0)
       rails (~> 5)
       rails_autolink (~> 1.1)
 
@@ -66,7 +67,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (7.1.4)
-    autoprefixer-rails (6.6.1)
+    autoprefixer-rails (7.2.5)
       execjs
     bcrypt (3.1.11)
     better_errors (2.1.1)
@@ -75,10 +76,11 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    blacklight (6.7.3)
+    blacklight (6.14.1)
       bootstrap-sass (~> 3.2)
       deprecation
       globalid
+      jbuilder
       kaminari (>= 0.15)
       nokogiri (~> 1.6)
       rails (>= 4.2, < 6)
@@ -151,18 +153,18 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
-    kaminari (1.0.0)
+    kaminari (1.1.1)
       activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.0.0)
-      kaminari-activerecord (= 1.0.0)
-      kaminari-core (= 1.0.0)
-    kaminari-actionview (1.0.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
       actionview
-      kaminari-core (= 1.0.0)
-    kaminari-activerecord (1.0.0)
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
       activerecord
-      kaminari-core (= 1.0.0)
-    kaminari-core (1.0.0)
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     library_stdnums (1.6.0)
     libv8 (3.16.14.17)
     logger (1.2.8)
@@ -179,14 +181,17 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mini_portile2 (2.1.0)
+    mini_portile2 (2.3.0)
     minitest (5.10.1)
     multi_json (1.12.1)
     nio4r (1.2.1)
-    nokogiri (1.7.0.1)
-      mini_portile2 (~> 2.1.0)
+    nokogiri (1.8.2)
+      mini_portile2 (~> 2.3.0)
+    openurl (1.0.0)
+      marc
+      scrub_rb (~> 1.0)
     orm_adapter (0.5.0)
-    parslet (1.8.0)
+    parslet (1.8.1)
     poltergeist (1.15.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -315,7 +320,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  blacklight (~> 6.7)
+  blacklight (~> 6.14)
   blacklight-marc!
   byebug
   capybara
@@ -342,4 +347,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.15.3
+   1.16.1

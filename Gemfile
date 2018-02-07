@@ -32,9 +32,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'blacklight', "~> 6.7"
+gem 'blacklight', "~> 6.14"
 
-gem 'trln_argon', git: 'https://github.com/trln/trln_argon.git', branch: 'TD-220-subject-linking'
+gem 'trln_argon', git: 'https://github.com/trln/trln_argon.git', branch: 'refactoring'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'therubyracer'
